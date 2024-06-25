@@ -4,7 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
-#include "HttpResponce.generated.h"
+#include "HttpResponce_Controller.generated.h"
 
 
 UENUM(Blueprintable)
@@ -14,22 +14,24 @@ enum class EHttpType : uint8
 	Post,
 };
 /**
- * 
+ *
  */
 UCLASS(Blueprintable)
-class TC_HTTPSERVER_API UHttpResponce : public UObject
+class TC_HTTPSERVER_API UHttpResponce_Controller : public UObject
 {
 	GENERATED_BODY()
-	
-
 public:
-	//UHttpResponce(){}
-	UFUNCTION(BlueprintCallable,BlueprintNativeEvent)
-	FString Parse(const TMap<FString, FString>& str);
-	FString Parse_Implementation(const TMap<FString, FString>& str);
+	//蓝图去匹配
+	///UFUNCTION(BlueprintCallable,BlueprintNativeEvent)
+	virtual  FString Parse(const TMap<FString, FString>& map_param);
+	//或者C++实现
+	//virtual  FString Parse_Implementation(const TMap<FString, FString>& map_param);
+
+	
 
 	UPROPERTY(BlueprintReadWrite,EditAnywhere,Category="HttpServer")
 	FString HttpPath;
 	UPROPERTY(BlueprintReadWrite,EditAnywhere,Category="HttpServer")
 	EHttpType HttpType = EHttpType::Get;
+	
 };

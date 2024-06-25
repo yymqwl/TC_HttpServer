@@ -25,7 +25,8 @@ public class TC_HttpServer : ModuleRules
 		PublicDependencyModuleNames.AddRange(
 			new string[]
 			{
-				"Core", "HttpServer",
+				"Core"
+				//, "HttpServer",
 				// ... add other public dependencies that you statically link with here ...
 			}
 			);
@@ -38,6 +39,8 @@ public class TC_HttpServer : ModuleRules
 				"Engine",
 				"Slate",
 				"SlateCore",
+				"Json",
+				"JsonUtilities",
 				"HTTPServer",
 			}
 			);

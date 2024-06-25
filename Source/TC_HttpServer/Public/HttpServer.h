@@ -4,7 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "HttpRequestHandler.h"
-#include "HttpResponce.h"
+#include "HttpResponce_Controller.h"
 #include "HttpResultCallback.h"
 #include "GameFramework/Actor.h"
 #include "HttpServer.generated.h"
@@ -26,23 +26,26 @@ public:
 	void StartServer();
 	void StopServer();
 
+	TArray<UBlueprint*> GetAllBlueprints();
 
+	void RegisterAll_Controller();
+	
 	/*
 	UFUNCTION(BlueprintCallable,BlueprintNativeEvent)
 	void Test();
 	void Test_Implementation();
 	*/
 public:
-	
 	UPROPERTY(BlueprintReadOnly,EditAnywhere,Category="HttpServer")
 	int32 Port;
 	
 	//UPROPERTY(BlueprintReadWrite,Category="HttpServer")
 	//FHttpRequst_Dynamic_Delegate Get_HttpRequst_Delegate;
+protected:
 	UPROPERTY(Transient)// (BlueprintReadWrite,EditAnywhere,Category="HttpServer")
-	TMap<FString,TObjectPtr<UHttpResponce>> Get_HttpResponce_Map;
-	UPROPERTY(BlueprintReadWrite,EditAnywhere,Category="HttpServer" ,meta = ( TitleProperty = "Http_Get"))
-	TSet<TSubclassOf<UHttpResponce>> Http_Responce_Class;
+	TMap<FString,TObjectPtr<UHttpResponce_Controller>> Get_HttpResponce_Controller_Map;
+	UPROPERTY(Transient)//(BlueprintReadWrite,EditAnywhere,Category="HttpServer" ,meta = ( TitleProperty = "Http_Get"))
+	TSet<TSubclassOf<UHttpResponce_Controller>> Http_Responce_Controller_Class;
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;

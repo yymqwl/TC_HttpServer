@@ -2,6 +2,8 @@
 
 #include "TC_HttpServer.h"
 
+
+
 #define LOCTEXT_NAMESPACE "FTC_HttpServerModule"
 
 void FTC_HttpServerModule::StartupModule()
@@ -11,6 +13,8 @@ void FTC_HttpServerModule::StartupModule()
 
 void FTC_HttpServerModule::ShutdownModule()
 {
+	//FJsonObjectWrapper
+	
 	// This function may be called during shutdown to clean up your module.  For modules that support dynamic reloading,
 	// we call this function before unloading the module.
 }
