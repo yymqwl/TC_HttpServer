@@ -96,6 +96,7 @@ void AHttpServer::StartServer()
 	FHttpServerModule& httpServerModule = FHttpServerModule::Get();
 	TSharedPtr<IHttpRouter> httpRouter = httpServerModule.GetHttpRouter(Port);
 	
+	//FRHIResource
 	
 	//Http_Responce->Psrse()
 	
